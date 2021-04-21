@@ -8,13 +8,23 @@
  */
 
 public class BubbleSort {
-    public static void bubbleSort(int[] input) {
-
+    public static int[] bubbleSort(int[] input) {
+        int temp;
+        for(int j=0;j<input.length-1; j++)
+         for (int i = 0;i < input.length -j-1;i++) {
+             if(input[i] > input[i+1]) {
+                    temp = input[i];
+                    input[i] = input[i+1];
+                    input[i+1] = temp;
+             }
+         }
+         return input;
     }
 
     public static void main(String[] str) {
-        int[] input = { 5,2,4,6,7,3,1,8,9,10};
-        BubbleSort.bubbleSort(input);
-        System.out.println(input.toString());
+        int[] input = { 5,2,9,4,6,7,3,1,10,8};
+        int[] afterSort = BubbleSort.bubbleSort(input);
+        Util.PrintArray(afterSort);
+
     }
 }
